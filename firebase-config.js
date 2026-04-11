@@ -1,12 +1,13 @@
 // Add your Firebase Config here:
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    databaseURL: "YOUR_DATABASE_URL",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBOF7LpvREf2KxWSskK-mRiqpC9a1OoPTQ",
+  authDomain: "gold-prices-6825b.firebaseapp.com",
+  databaseURL: "https://gold-prices-6825b-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "gold-prices-6825b",
+  storageBucket: "gold-prices-6825b.firebasestorage.app",
+  messagingSenderId: "186971346130",
+  appId: "1:186971346130:web:5454517ceb5fb0552d490b",
+  measurementId: "G-Z1K0G3E059"
 };
 
 // Initialize Firebase
