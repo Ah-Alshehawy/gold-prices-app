@@ -32,6 +32,21 @@ header {
   background: linear-gradient(180deg, rgba(212,175,55,0.1) 0%, transparent 100%);
 }
 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  max-height: 120px; /* Adjust height based on uploaded visual */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  border: 2px solid var(--border-color);
+  object-fit: contain;
+}
+
 .logo-text {
   font-size: 3rem;
   font-weight: 900;
@@ -55,10 +70,22 @@ main {
 
 .prices-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
   width: 100%;
   max-width: 1400px;
+  transition: all 0.5s ease;
+  margin: 0 auto;
+}
+
+/* Landscape / Horizontal layout default */
+body.layout-horizontal .prices-grid {
+  grid-template-columns: repeat(2, 1fr); /* 2x2 layout is perfect for TV */
+}
+
+/* Portrait / Vertical layout */
+body.layout-vertical .prices-grid {
+  grid-template-columns: 1fr; /* 1 column layout */
+  max-width: 700px;
 }
 
 .price-card {

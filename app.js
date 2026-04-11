@@ -28,6 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Layout Toggle logic
+    const layoutBtn = document.getElementById('layoutBtn');
+    let isVertical = localStorage.getItem('isVertical') === 'true';
+    
+    // Initial setup
+    if (isVertical) {
+        document.body.classList.add('layout-vertical');
+        document.body.classList.remove('layout-horizontal');
+    } else {
+        document.body.classList.add('layout-horizontal');
+        document.body.classList.remove('layout-vertical');
+    }
+
+    // Toggle click
+    layoutBtn.addEventListener('click', () => {
+        isVertical = !isVertical;
+        localStorage.setItem('isVertical', isVertical);
+        if (isVertical) {
+            document.body.classList.add('layout-vertical');
+            document.body.classList.remove('layout-horizontal');
+        } else {
+            document.body.classList.add('layout-horizontal');
+            document.body.classList.remove('layout-vertical');
+        }
+    });
+
     // Realtime Data Fetching
     dbRef.on('value', (snapshot) => {
         const data = snapshot.val();
