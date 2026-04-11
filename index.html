@@ -10,8 +10,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
 </head>
 <body>
+    <div class="app-container">
     <div id="loading" class="loading">جارِ التحميل...</div>
-    
     <div class="controls">
         <button id="layoutBtn" class="btn-icon">تغيير العرض 🔄</button>
         <button id="fullscreenBtn" class="btn-icon">شاشة كاملة ⛶</button>
@@ -70,6 +70,10 @@
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=MECARD%3AN%3AAmir%20Essawy%3BTEL%3A01008750509%3BTEL%3A01509099942%3BTEL%3A0453931515%3BURL%3Ahttps%3A%2F%2Fwww.facebook.com%2Fshare%2F18DAca6YTx%2F%3Fmibextid%3DwwXIfr%3B%3B&color=000000&bgcolor=D4AF37" alt="QR Code" class="qr-img">
         </div>
     </footer>
+    <div style="width: 100%; text-align: center; margin-top: 1rem; padding-bottom: 2rem;">
+        <a href="admin.html" style="color: var(--text-secondary); text-decoration: none; border-bottom: 1px dashed var(--accent); font-size: 1.2rem;">⚙️ الانتقال لوحة التحكم والتعديل</a>
+    </div>
+    </div>
 
     <script src="firebase-config.js"></script>
     <script src="app.js"></script>

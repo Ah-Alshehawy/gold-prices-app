@@ -21,8 +21,31 @@ body {
   color: var(--text-main);
   direction: rtl;
   min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+body.rotated-mode {
+  overflow: hidden; /* Prevent native scrolling to hide scrollbars */
+}
+
+body.rotated-mode .app-container {
+  width: 100vh;
+  height: 100vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 header {
@@ -70,6 +93,7 @@ main {
 
 .prices-grid {
   display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 layout is perfect for horizontal TV */
   gap: 2.5rem;
   width: 100%;
   max-width: 1400px;
@@ -77,13 +101,8 @@ main {
   margin: 0 auto;
 }
 
-/* Landscape / Horizontal layout default */
-body.layout-horizontal .prices-grid {
-  grid-template-columns: repeat(2, 1fr); /* 2x2 layout is perfect for TV */
-}
-
-/* Portrait / Vertical layout */
-body.layout-vertical .prices-grid {
+/* Portrait / Physically Rotated layout */
+body.rotated-mode .prices-grid {
   grid-template-columns: 1fr; /* 1 column layout */
   max-width: 700px;
 }
