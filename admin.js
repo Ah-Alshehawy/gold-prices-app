@@ -14,21 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
     dbRef.on('value', (snapshot) => {
         const data = snapshot.val();
         if (data) {
-            if(data.gold24) {
-                document.getElementById('input-gold24-buy').value = data.gold24.buy;
-                document.getElementById('input-gold24-sell').value = data.gold24.sell;
+            if(data.gold24 !== undefined) {
+                document.getElementById('input-gold24-price').value = typeof data.gold24 === 'object' ? data.gold24.sell : data.gold24;
             }
-            if(data.gold21) {
-                document.getElementById('input-gold21-buy').value = data.gold21.buy;
-                document.getElementById('input-gold21-sell').value = data.gold21.sell;
+            if(data.gold21 !== undefined) {
+                document.getElementById('input-gold21-price').value = typeof data.gold21 === 'object' ? data.gold21.sell : data.gold21;
             }
-            if(data.gold18) {
-                document.getElementById('input-gold18-buy').value = data.gold18.buy;
-                document.getElementById('input-gold18-sell').value = data.gold18.sell;
+            if(data.gold18 !== undefined) {
+                document.getElementById('input-gold18-price').value = typeof data.gold18 === 'object' ? data.gold18.sell : data.gold18;
             }
-            if(data.pound) {
-                document.getElementById('input-pound-buy').value = data.pound.buy;
-                document.getElementById('input-pound-sell').value = data.pound.sell;
+            if(data.pound !== undefined) {
+                document.getElementById('input-pound-price').value = typeof data.pound === 'object' ? data.pound.sell : data.pound;
             }
         }
         loading.classList.add('hidden');
@@ -42,22 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         
         const updatedPrices = {
-            gold24: {
-                buy: Number(document.getElementById('input-gold24-buy').value),
-                sell: Number(document.getElementById('input-gold24-sell').value)
-            },
-            gold21: {
-                buy: Number(document.getElementById('input-gold21-buy').value),
-                sell: Number(document.getElementById('input-gold21-sell').value)
-            },
-            gold18: {
-                buy: Number(document.getElementById('input-gold18-buy').value),
-                sell: Number(document.getElementById('input-gold18-sell').value)
-            },
-            pound: {
-                buy: Number(document.getElementById('input-pound-buy').value),
-                sell: Number(document.getElementById('input-pound-sell').value)
-            }
+            gold24: Number(document.getElementById('input-gold24-price').value),
+            gold21: Number(document.getElementById('input-gold21-price').value),
+            gold18: Number(document.getElementById('input-gold18-price').value),
+            pound: Number(document.getElementById('input-pound-price').value)
         };
 
         // Disable button during save

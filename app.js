@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dbRef = database.ref('prices');
 
-    // Update Date
+    // Update Date and Time
     const updateDate = () => {
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('dateDisplay').textContent = new Date().toLocaleDateString('ar-EG', options);
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', numberingSystem: 'arab' };
+        document.getElementById('dateDisplay').textContent = new Date().toLocaleString('ar-EG', options);
     };
     updateDate();
-    setInterval(updateDate, 60000); // update every minute
+    setInterval(updateDate, 1000); // update every second for the clock
 
     // Fullscreen logic
     const fullscreenBtn = document.getElementById('fullscreenBtn');
@@ -59,29 +59,25 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = snapshot.val();
         if (data) {
             // Update UI
-            if(data.gold24) {
-                document.getElementById('gold24-buy').textContent = data.gold24.buy;
-                document.getElementById('gold24-sell').textContent = data.gold24.sell;
+            if(data.gold24 !== undefined) {
+                document.getElementById('gold24-price').textContent = typeof data.gold24 === 'object' ? data.gold24.sell : data.gold24;
             }
-            if(data.gold21) {
-                document.getElementById('gold21-buy').textContent = data.gold21.buy;
-                document.getElementById('gold21-sell').textContent = data.gold21.sell;
+            if(data.gold21 !== undefined) {
+                document.getElementById('gold21-price').textContent = typeof data.gold21 === 'object' ? data.gold21.sell : data.gold21;
             }
-            if(data.gold18) {
-                document.getElementById('gold18-buy').textContent = data.gold18.buy;
-                document.getElementById('gold18-sell').textContent = data.gold18.sell;
+            if(data.gold18 !== undefined) {
+                document.getElementById('gold18-price').textContent = typeof data.gold18 === 'object' ? data.gold18.sell : data.gold18;
             }
-            if(data.pound) {
-                document.getElementById('pound-buy').textContent = data.pound.buy;
-                document.getElementById('pound-sell').textContent = data.pound.sell;
+            if(data.pound !== undefined) {
+                document.getElementById('pound-price').textContent = typeof data.pound === 'object' ? data.pound.sell : data.pound;
             }
         } else {
             // First time setup if database is empty
             dbRef.set({
-                gold24: { buy: 0, sell: 0 },
-                gold21: { buy: 0, sell: 0 },
-                gold18: { buy: 0, sell: 0 },
-                pound: { buy: 0, sell: 0 }
+                gold24: 0,
+                gold21: 0,
+                gold18: 0,
+                pound: 0
             });
         }
         
