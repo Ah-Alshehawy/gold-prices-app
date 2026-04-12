@@ -31,6 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
+  position: relative;
 }
 
 body.rotated-mode {
@@ -167,8 +168,8 @@ body.rotated-mode .prices-grid {
 }
 
 .contact-footer {
-  margin-top: 2rem;
-  padding: 1.5rem;
+  margin-top: auto; /* Push to bottom of flex container */
+  padding: 2rem 1.5rem;
   background: linear-gradient(0deg, rgba(212,175,55,0.1) 0%, transparent 100%);
   border-top: 2px solid var(--border-color);
   display: flex;
@@ -297,6 +298,21 @@ body.rotated-mode .prices-grid {
   position: absolute;
   top: 1rem;
   left: 1rem;
+  z-index: 1000;
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    position: relative;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--border-color);
+  }
 }
 
 .btn-icon {
@@ -354,9 +370,23 @@ body.rotated-mode .prices-grid {
 
 @media (max-width: 768px) {
   .logo-text { font-size: 2rem; }
-  .date-display { font-size: 1.2rem; }
-  .card-title { font-size: 2rem; }
-  .price-label { font-size: 1.5rem; }
-  .price-value { font-size: 1.8rem; }
-  .prices-grid { grid-template-columns: 1fr; }
+  .date-display { font-size: 1.1rem; }
+  .card-title { font-size: 1.8rem; }
+  .price-value { font-size: 2.5rem; }
+  .prices-grid { 
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  .contact-info {
+    font-size: 1.1rem;
+    text-align: center !important;
+  }
+  .contact-item {
+    justify-content: center !important;
+  }
+  .contact-footer {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
 }
