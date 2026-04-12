@@ -50,6 +50,46 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Custom Scroll Logic for Rotated Mode (Fix freeze issue)
+    const appContainer = document.querySelector('.app-container');
+    
+    // 1. Mouse Wheel fix
+    window.addEventListener('wheel', (e) => {
+        if (document.body.classList.contains('rotated-mode')) {
+            appContainer.scrollTop += e.deltaY;
+        }
+    });
+
+    // 2. Touch fix for mobile and smart screens
+    let touchStartY = 0;
+    appContainer.addEventListener('touchstart', (e) => {
+        if (document.body.classList.contains('rotated-mode')) {
+            touchStartY = e.touches[0].clientY;
+        }
+    }, { passive: false });
+
+    appContainer.addEventListener('touchmove', (e) => {
+        if (document.body.classList.contains('rotated-mode')) {
+            e.preventDefault(); // Stop native frozen scroll
+            const touchY = e.touches[0].clientY;
+            appContainer.scrollTop += (touchStartY - touchY);
+            touchStartY = touchY;
+        }
+    }, { passive: false });
+
+    // 3. TV Remote / Keyboard fix
+    window.addEventListener('keydown', (e) => {
+        if (document.body.classList.contains('rotated-mode')) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                appContainer.scrollTop += 60;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                appContainer.scrollTop -= 60;
+            }
+        }
+    });
+
     // Realtime Data Fetching
     dbRef.on('value', (snapshot) => {
         const data = snapshot.val();
