@@ -229,10 +229,25 @@ body.rotated-mode .prices-grid {
   display: block;
 }
 
-.fb-icon {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
+.contact-icon {
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.contact-icon:hover {
+  background-color: var(--accent);
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
 /* Admin Styles */
