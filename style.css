@@ -233,14 +233,21 @@ body.rotated-mode .prices-grid {
   color: var(--accent);
   border: 2px solid var(--accent);
   border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
+  width: 48px;
+  height: 48px;
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   transition: all 0.3s ease;
   background: transparent;
+  flex-shrink: 0;
+  line-height: 0; /* Fix for icon vertical offset */
+}
+
+.contact-icon i, .contact-icon svg {
+  margin: 0;
+  padding: 0;
 }
 
 .contact-icon:hover {
