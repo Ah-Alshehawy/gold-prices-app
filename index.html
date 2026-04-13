@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,79 +10,87 @@
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
 </head>
+
 <body>
     <div class="app-container">
-    <div id="loading" class="loading">جارِ التحميل...</div>
-    <div class="controls">
-        <button id="layoutBtn" class="btn-icon">تغيير العرض 🔄</button>
-        <button id="fullscreenBtn" class="btn-icon">شاشة كاملة ⛶</button>
-    </div>
-
-    <header>
-        <div class="logo-container">
-            <img src="logo.jpeg" alt="AMIR ESSAWY" class="logo-img">
+        <div id="loading" class="loading">جارِ التحميل...</div>
+        <div class="controls">
+            <button id="layoutBtn" class="btn-icon">تغيير العرض 🔄</button>
+            <button id="fullscreenBtn" class="btn-icon">شاشة كاملة ⛶</button>
         </div>
-        <div class="date-display" id="dateDisplay"></div>
-    </header>
 
-    <main>
-        <div class="prices-grid">
-            <!-- عيار 24 -->
-            <div class="price-card">
-                <h2 class="card-title">عيار 24</h2>
-                <div class="price-single">
-                    <span class="price-value" id="gold24-price">0</span>
+        <header>
+            <div class="logo-container">
+                <img src="logo.jpeg" alt="AMIR ESSAWY" class="logo-img">
+            </div>
+            <div class="date-display" id="dateDisplay"></div>
+        </header>
+
+        <main>
+            <div class="prices-grid">
+                <!-- عيار 24 -->
+                <div class="price-card">
+                    <h2 class="card-title">عيار 24</h2>
+                    <div class="price-single">
+                        <span class="price-value" id="gold24-price">0</span>
+                    </div>
+                </div>
+
+                <!-- عيار 21 -->
+                <div class="price-card">
+                    <h2 class="card-title">عيار 21</h2>
+                    <div class="price-single">
+                        <span class="price-value" id="gold21-price">0</span>
+                    </div>
+                </div>
+
+                <!-- عيار 18 -->
+                <div class="price-card">
+                    <h2 class="card-title">عيار 18</h2>
+                    <div class="price-single">
+                        <span class="price-value" id="gold18-price">0</span>
+                    </div>
+                </div>
+
+                <!-- جنيه ذهب -->
+                <div class="price-card">
+                    <h2 class="card-title">جنيه ذهب</h2>
+                    <div class="price-single">
+                        <span class="price-value" id="pound-price">0</span>
+                    </div>
                 </div>
             </div>
+        </main>
 
-            <!-- عيار 21 -->
-            <div class="price-card">
-                <h2 class="card-title">عيار 21</h2>
-                <div class="price-single">
-                    <span class="price-value" id="gold21-price">0</span>
+        <footer class="contact-footer">
+            <div class="developer-section" style="text-align: center;">
+                <div class="qr-wrapper" style="position: relative; display: inline-block;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=D4AF37&color=000000&ecc=H&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAhmed%20El-shehawy%0ATEL%3A%2B201006765695%0AURL%3Ahttps%3A%2F%2Fsits-nine.vercel.app%2Far%0AURL%3Ahttps%3A%2F%2Fwww.facebook.com%2FAhmedAlshehawy.Tec%0AEND%3AVCARD"
+                        alt="Ahmed El-shehawy QR" class="qr-img">
+                    <div
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #D4AF37; padding: 2px 6px; font-weight: 900; border-radius: 5px; font-size: 1.2rem; color: #000; box-shadow: 0 0 5px rgba(0,0,0,0.5);">
+                        SITS</div>
+                </div>
+                <div
+                    style="margin-top: 8px; font-size: 1rem; color: var(--text-secondary); text-shadow: 0 0 5px rgba(255,215,0,0.3);">
+                    تصميم وتطوير: <strong style="color: var(--accent);">Ahmed El-shehawy</strong>
                 </div>
             </div>
-
-            <!-- عيار 18 -->
-            <div class="price-card">
-                <h2 class="card-title">عيار 18</h2>
-                <div class="price-single">
-                    <span class="price-value" id="gold18-price">0</span>
-                </div>
+            <div class="contact-info" dir="ltr" style="text-align: left;">
+                <div class="contact-item" style="justify-content: flex-start;">📞 0453931515 | 01008750509 | 01509099942</div>
+                <div class="contact-item" style="justify-content: flex-start;">💬 واتساب: 01008750509</div>
+                <div class="contact-item" style="justify-content: flex-start;">🔵 <a href="https://www.facebook.com/share/18DAca6YTx/?mibextid=wwXIfr" target="_blank" class="footer-link">فيسبوك</a></div>
             </div>
-
-            <!-- جنيه ذهب -->
-            <div class="price-card">
-                <h2 class="card-title">جنيه ذهب</h2>
-                <div class="price-single">
-                    <span class="price-value" id="pound-price">0</span>
-                </div>
-            </div>
+        </footer>
+        <div style="width: 100%; text-align: center; margin-top: 1rem; padding-bottom: 2rem;">
+            <a href="admin.html"
+                style="color: var(--text-secondary); text-decoration: none; border-bottom: 1px dashed var(--accent); font-size: 1.2rem;">⚙️
+                الانتقال لوحة التحكم والتعديل</a>
         </div>
-    </main>
-
-    <footer class="contact-footer">
-        <div class="developer-section" style="text-align: center;">
-            <div class="qr-wrapper" style="position: relative; display: inline-block;">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=D4AF37&color=000000&ecc=H&data=BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAhmed%20El-shehawy%0ATEL%3A%2B201006765695%0AURL%3Ahttps%3A%2F%2Fsits-nine.vercel.app%2Far%0AURL%3Ahttps%3A%2F%2Fwww.facebook.com%2FAhmedAlshehawy.Tec%0AEND%3AVCARD" alt="Ahmed El-shehawy QR" class="qr-img">
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #D4AF37; padding: 2px 6px; font-weight: 900; border-radius: 5px; font-size: 1.2rem; color: #000; box-shadow: 0 0 5px rgba(0,0,0,0.5);">SITS</div>
-            </div>
-            <div style="margin-top: 8px; font-size: 1rem; color: var(--text-secondary); text-shadow: 0 0 5px rgba(255,215,0,0.3);">
-                تصميم وتطوير: <strong style="color: var(--accent);">Ahmed El-shehawy</strong>
-            </div>
-        </div>
-        <div class="contact-info" dir="ltr" style="text-align: right;">
-            <div class="contact-item" style="justify-content: flex-end;">📞 0453931515 | 01008750509 | 01509099942</div>
-            <div class="contact-item" style="justify-content: flex-end;">💬 واتساب: 01008750509</div>
-            <div class="contact-item" style="justify-content: flex-end;">🌐 <a href="https://www.facebook.com/share/18DAca6YTx/?mibextid=wwXIfr" target="_blank" class="footer-link">صفحة AMIR ESSAWY</a></div>
-        </div>
-    </footer>
-    <div style="width: 100%; text-align: center; margin-top: 1rem; padding-bottom: 2rem;">
-        <a href="admin.html" style="color: var(--text-secondary); text-decoration: none; border-bottom: 1px dashed var(--accent); font-size: 1.2rem;">⚙️ الانتقال لوحة التحكم والتعديل</a>
-    </div>
     </div>
 
     <script src="firebase-config.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
