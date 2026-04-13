@@ -104,16 +104,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if(data.gold18 !== undefined) {
                 document.getElementById('gold18-price').textContent = typeof data.gold18 === 'object' ? data.gold18.sell : data.gold18;
             }
-            if(data.pound !== undefined) {
-                document.getElementById('pound-price').textContent = typeof data.pound === 'object' ? data.pound.sell : data.pound;
-            }
+
         } else {
             // First time setup if database is empty
             dbRef.set({
                 gold24: 0,
                 gold21: 0,
                 gold18: 0,
-                pound: 0
+
             });
         }
         

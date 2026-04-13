@@ -106,11 +106,33 @@ main {
   margin: 0 auto;
 }
 
-/* Portrait / Physically Rotated layout */
+/* Portrait / Physically Rotated layout - Optimized for 32" TV */
 body.rotated-mode .prices-grid {
   grid-template-columns: 1fr;
   /* 1 column layout */
-  max-width: 700px;
+  max-width: 900px; /* Wider for TV */
+  gap: 4rem; /* More space between the 3 items */
+}
+
+body.rotated-mode .price-card {
+  padding: 4rem 2rem; /* Taller cards to fill height */
+}
+
+body.rotated-mode .card-title {
+  font-size: 4rem; /* Massive titles */
+}
+
+body.rotated-mode .price-value {
+  font-size: 7rem; /* Massive prices */
+}
+
+body.rotated-mode .date-display {
+  font-size: 2.5rem;
+}
+
+body.rotated-mode .logo-img {
+  max-width: 350px;
+  max-height: 250px;
 }
 
 .price-card {

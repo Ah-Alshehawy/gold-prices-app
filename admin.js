@@ -23,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(data.gold18 !== undefined) {
                 document.getElementById('input-gold18-price').value = typeof data.gold18 === 'object' ? data.gold18.sell : data.gold18;
             }
-            if(data.pound !== undefined) {
-                document.getElementById('input-pound-price').value = typeof data.pound === 'object' ? data.pound.sell : data.pound;
-            }
+
         }
         loading.classList.add('hidden');
     }, (error) => {
@@ -41,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gold24: Number(document.getElementById('input-gold24-price').value),
             gold21: Number(document.getElementById('input-gold21-price').value),
             gold18: Number(document.getElementById('input-gold18-price').value),
-            pound: Number(document.getElementById('input-pound-price').value)
+
         };
 
         // Disable button during save
